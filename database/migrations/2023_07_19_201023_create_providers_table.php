@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('d_factura', function (Blueprint $table) {
+        Schema::create('providers', function (Blueprint $table) {
             $table->id();
-            $table->char('cantidad', 4);
+            $table->string('name', 30);
+            $table->string('firstname', 30);
+            $table->string('phone', 15);
+            $table->string('email', 40);
 
-            $table->bigInteger('producto')->unsigned();
 
-            $table->foreign('producto')->references('id')->on('productos')->onDelete('cascade');
+            $table->bigInteger('city')->unsigned();
 
+            $table->foreign('city')->references('id')->on('cities')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('d_factura');
+        Schema::dropIfExists('providers');
     }
 };

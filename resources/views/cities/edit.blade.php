@@ -22,12 +22,12 @@
         <label for="department_id">Department</label>
         <select name="Department_id" id="Department_id">
             <option value="">Select</option>
-            @foreach($Department as $Department)
+            @foreach($departments as $department)
                 <option
                     @if($category->id == (int) $city->department_id)
                         selected
                     @endif
-                    value="{{ $Department->id }}">{{ $Department->name }}</option>
+                    value="{{ $department->id }}">{{ $department->name }}</option>
             @endforeach
         </select>
         @error('department_id')

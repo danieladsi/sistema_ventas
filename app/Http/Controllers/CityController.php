@@ -23,7 +23,7 @@ class CityController extends Controller
     public function store(Request $request){
         $data = $request->validate([
             'name'=>'required|max:255',
-            'departmnet_id'=>'required|integer',
+            'department_id'=>'required|integer',
         ]);
 
         City::create($data);
